@@ -1,0 +1,56 @@
+services:
+  web:
+    build: ./FrontEnd-react
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./FrontEnd-react:/app
+    networks:
+      - backend
+
+  api:
+    build: ./BackEnd-react
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./Backend:/app
+    environment:
+      # Consider using secrets management for passwords
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+    networks:
+      - backend
+
+  db:
+    image: mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydb
+      MYSQL_PASSWORD: password
+    networks:
+      - backend
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mysql-data:
