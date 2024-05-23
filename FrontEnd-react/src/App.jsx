@@ -7,6 +7,7 @@ import PageContact from './pages/Contact';
 import Page404 from './pages/NoPage';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+import Login from './pages/Login/Login';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path=":userId" element={<Profile />} />
         </Route>
         <Route path="*" element={<Page404 />} />
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </BrowserRouter>
   );

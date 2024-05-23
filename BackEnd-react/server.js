@@ -17,17 +17,16 @@ const mysqlConfig = {
   database: process.env.DB_NAME || "mydb",
 };
 
-// app.post("/login", (req, res) => {
-//   const authenticated = true;
-//   const { username, password } = req.body;
-//   if (authenticated) {
-//     res.status(200).json({ message: "Login successful" });
-//   } else {
-//     res.status(401).json({ message: "Invalid credentials" });
-//   }
-// });
+app.post("/login", (req, res) => {
+  const authenticated = true;
+  const { username, password } = req.body;
+  if (authenticated) {
+    res.status(200).json({ message: "Login successful" });
+  } else {
+    res.status(401).json({ message: "Invalid credentials" });
+  }
+});
 
-// Start the server
 app.listen(4000, () => {
   console.log("Server running on port 4000");
 });
