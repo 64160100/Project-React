@@ -1,15 +1,20 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-function Dashboard({logout}) {
+function Dashboard() {
   return (
-    <div>
-    <h3>Dashboard</h3>
-    <Link to="settings">settings</Link>
-    <Outlet/>
-    <p>Welcome User</p>
-    <button onClick={logout}>Logout</button>
-    </div>
+    <>
+      <header>
+        <h1>hello world</h1>
+      </header>
+      <nav>
+        <NavLink end to="/" >Home</NavLink>
+        <NavLink to="/about" >About</NavLink>
+        <NavLink to="/contact" >contact</NavLink>
+        <NavLink to="/dashboard" >Dashboard</NavLink>
+        
+      </nav>
+    </>
   )
 }
 

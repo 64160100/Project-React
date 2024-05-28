@@ -1,21 +1,20 @@
-
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-function Home( {login} ) {
-
-  let navigate = useNavigate()
-
+function Home() {
   return (
-    <div>
-      <p>my name is HomePage</p>
-      <button onClick={() => {
-        login();
-        navigate('/dashboard')
-      }}>
-        Login</button>
-
-    </div>
+    <>
+      <header>
+        <h1>hello world</h1>
+      </header>
+      <nav>
+        <NavLink end to="/" >Home</NavLink><br/>
+        <NavLink to="/about" >About</NavLink><br/>
+        <NavLink to="/contact" >contact</NavLink><br/>
+        <NavLink to="/dashboard" >Dashboard</NavLink><br/>
+        <NavLink to="/login" >Login</NavLink>
+      </nav>
+    </>
   )
 }
 

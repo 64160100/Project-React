@@ -19,7 +19,6 @@ services:
     volumes:
       - ./Backend:/app
     environment:
-      # Consider using secrets management for passwords
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
     networks:
